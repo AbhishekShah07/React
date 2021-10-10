@@ -1,8 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
+import { Switch, Route } from "react-router-dom";
+import Header from "./components/Header";
+import List from "./components/List";
 
 const App = () => {
-  const [state, setState] = useState("Click Me");
-  return <button onClick={() => setState("Clicked")}>{state}</button>;
+  return (
+    <div>
+      <Header />
+      <div>
+        <Switch>
+          <Route exact path="/" />
+        </Switch>
+      </div>
+    </div>
+  );
 };
 
 export default App;
