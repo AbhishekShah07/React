@@ -1,0 +1,46 @@
+@import "../../../style.scss";
+
+.listitem-wrapper {
+  min-width: 30px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 5px 0 0 0;
+}
+
+.listitem-serialno {
+  display: flex;
+  margin: 0 10px 0 0;
+  justify-content: flex-end;
+  color: $grey;
+  min-width: 30px;
+}
+
+.listitem-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.listitem-triangle {
+  cursor: pointer;
+  margin-right: 6px;
+  font-size: 12px;
+  color: $grey;
+}
+
+.listitem-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.listitem-description {
+  text-decoration: none;
+  font-size: 15px;
+  cursor: pointer;
+  color: $black;
+}
+
+.listitem-subdetails {
+  font-size: 10px;
+  color: $grey;
+}

@@ -21,7 +21,7 @@ const authorization = setContext((_, { headers }) => {
   return {
     headers: {
       ...headers,
-      Authorization: `Bearer ${token}`,
+      Authorization: token ? `Bearer ${token}` : "",
     },
   };
 });
