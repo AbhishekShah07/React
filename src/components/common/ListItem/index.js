@@ -7,6 +7,7 @@ import { LINKS_LIST } from "../../../graphql/queries";
 const ListItem = ({
   listItem: { id, description, url, votes, postedBy, createdAt },
   serialNumber,
+  loggedIn,
 }) => {
   const [vote] = useMutation(VOTE_MUTATION, {
     variables: {
@@ -17,9 +18,11 @@ const ListItem = ({
     <div className="listitem-wrapper">
       <div className="listitem-serialno">{serialNumber}.</div>
       <div className="listitem-content">
-        <div className="listitem-triangle" onClick={vote}>
-          ▲
-        </div>
+        {loggedIn && (
+          <div className="listitem-triangle" onClick={vote}>
+            ▲
+          </div>
+        )}
         <div className="listitem-details">
           <a className="listitem-description" href={url}>
             {description}
