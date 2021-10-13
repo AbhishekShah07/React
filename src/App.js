@@ -5,8 +5,10 @@ import Feed from "./components/Feed";
 import Login from "./components/Login";
 import Search from "./components/Search";
 import Create from "./components/Create";
+import { AUTHORIZATION_TOKEN } from "./contants";
 
 const App = () => {
+  const loggedIn = localStorage.getItem(AUTHORIZATION_TOKEN);
   return (
     <div>
       <div>
@@ -18,7 +20,7 @@ const App = () => {
           <Route exact path="/new" render={() => <Redirect to="/new/1" />} />
           <Route exact path="/new/:page" component={New} />
           <Route exact path="/search" component={Search} />
-          <Route exact path="/create" component={Create} />
+          {loggedIn && <Route exact path="/create" component={Create} />}
         </Switch>
       </div>
     </div>

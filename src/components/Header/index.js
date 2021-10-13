@@ -37,11 +37,13 @@ const Header = () => {
             </Link>
           </div>
           |
-          <div className="header-link">
-            <Link to="/create" className="text-link" path="/create">
-              Submit
-            </Link>
-          </div>
+          {loggedIn && (
+            <div className="header-link">
+              <Link to="/create" className="text-link" path="/create">
+                Submit
+              </Link>
+            </div>
+          )}
         </div>
         <div className="login-link text-link" onClick={handleLoginClick}>
           {loggedIn ? "Logout" : "Login"}
