@@ -1,5 +1,11 @@
 @import "../../style.scss";
 
+.login-header {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
 .login-wrapper {
   margin: 100px auto 0 auto;
   max-width: 400px;

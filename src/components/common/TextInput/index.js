@@ -7,7 +7,14 @@ const TextInput = (props) => {
       InputLabelProps={{
         style: { color: "#000000" },
       }}
-      variant="filled"
+      inputProps={{
+        style: {
+          height: 25,
+          padding: 0,
+          maxWidth: 200,
+        },
+      }}
+      size="small"
       {...props}
       style={{ marginBottom: 10, width: 300 }}
     />

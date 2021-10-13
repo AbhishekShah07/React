@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import List from "../common/List";
-import "./styles.scss";
 import { useQuery } from "@apollo/client";
 import { SEARCH_LINKS_LIST } from "../../graphql/queries";
+import Header from "../Header";
 
 const Search = () => {
   const [search, setSearch] = useState("");
@@ -13,9 +13,12 @@ const Search = () => {
     },
   });
   return (
-    <div className="new-wrapper">
-      <input value={search} onChange={(e) => setSearch(e.target.value)} />
-      {data && <List list={data.feed.links} />}
+    <div>
+      <Header />
+      <div className="content-wrapper">
+        <input value={search} onChange={(e) => setSearch(e.target.value)} />
+        {data && <List list={data.feed.links} />}
+      </div>
     </div>
   );
 };

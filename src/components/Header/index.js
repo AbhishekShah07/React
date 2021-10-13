@@ -2,10 +2,20 @@ import React from "react";
 import "./styles.scss";
 import logo from "../../images/logo.png";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
 import { AUTHORIZATION_TOKEN } from "../../contants";
 
 const Header = () => {
+  const history = useHistory();
   const loggedIn = localStorage.getItem(AUTHORIZATION_TOKEN);
+  const handleLoginClick = () => {
+    if (loggedIn) {
+      localStorage.removeItem(AUTHORIZATION_TOKEN);
+      history.push("/login");
+    } else {
+      history.push("/login");
+    }
+  };
   return (
     <div className="header-wrapper">
       <div className="header-logo">
@@ -28,15 +38,13 @@ const Header = () => {
           </div>
           |
           <div className="header-link">
-            <Link to="/submit" className="text-link" path="/create">
+            <Link to="/create" className="text-link" path="/create">
               Submit
             </Link>
           </div>
         </div>
-        <div className="login-link">
-          <Link to="/login" className="text-link">
-            {loggedIn ? "Login" : "Log out"}
-          </Link>
+        <div className="login-link text-link" onClick={handleLoginClick}>
+          {loggedIn ? "Logout" : "Login"}
         </div>
       </div>
     </div>

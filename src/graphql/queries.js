@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const LINKS_LIST = gql`
-  {
-    feed {
+  query LinksList($skip: Int!, $take: Int!) {
+    feed(skip: $skip, take: $take) {
       id
       links {
         id
@@ -23,8 +23,8 @@ export const LINKS_LIST = gql`
 `;
 
 export const NEWS_LINKS_LIST = gql`
-  query NewsLinksList($createdAt: Sort!) {
-    feed(orderBy: { createdAt: $createdAt }) {
+  query NewsLinksList($createdAt: Sort!, $skip: Int!, $take: Int!) {
+    feed(orderBy: { createdAt: $createdAt }, skip: $skip, take: $take) {
       id
       links {
         id

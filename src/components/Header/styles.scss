@@ -9,6 +9,9 @@
   padding: 3px 0px 3px 0px;
   width: 85%;
   margin: 0 auto 0 auto;
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 }
 
 .header-content {
@@ -42,4 +45,5 @@
 
 .login-link {
   margin: 0 10px 0 auto;
+  cursor: pointer;
 }
