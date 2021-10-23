@@ -1,12 +1,18 @@
 import React from "react";
+import PropTypes, { number } from "prop-types";
 import ListItem from "../ListItem/index";
-import { AUTHORIZATION_TOKEN } from "../../../contants";
+import { AUTHORIZATION_TOKEN } from "../../contants";
 
-const List = ({ list, serialNo }) => {
+interface Props {
+  list: Array<object>;
+  serialNo?: number;
+}
+
+const List: React.FC<Props> = ({ list, serialNo }) => {
   const authToken = localStorage.getItem(AUTHORIZATION_TOKEN);
   return (
     <div style={{ width: "100%" }}>
-      {list.map((item, index) => {
+      {list.map((item: object, index: number) => {
         return (
           <ListItem
             key={item.id}
@@ -21,3 +27,8 @@ const List = ({ list, serialNo }) => {
 };
 
 export default List;
+
+List.propTypes = {
+  list: PropTypes.array,
+  serialNo: PropTypes.number,
+};

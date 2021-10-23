@@ -1,23 +1,23 @@
 import React from "react";
 import { useHistory } from "react-router";
-import List from "../common/List";
+import List from "../../components/List";
 import { useQuery } from "@apollo/client";
-import { LINKS_LIST } from "../../graphql/queries";
-import { Pagination } from "@material-ui/lab";
-import Header from "../Header";
+import { NEWS_LINKS_LIST } from "../../graphql/queries";
+import Pagination from "@material-ui/lab/Pagination";
+import Header from "../../components/Header";
 
-const Feed = () => {
+const New = () => {
   const history = useHistory();
   const pageIndexParams = history.location.pathname.split("/");
   const page = parseInt(pageIndexParams[pageIndexParams.length - 1]);
-  const { data } = useQuery(LINKS_LIST, {
-    fetchPolicy: "network-only",
+  const { data } = useQuery(NEWS_LINKS_LIST, {
+    fetchPolicy: "cache-and-network",
     variables: {
+      createdAt: "desc",
       take: 5,
       skip: 5 * (page - 1),
     },
   });
-
   return (
     <div>
       <Header />
@@ -29,7 +29,7 @@ const Feed = () => {
               style={{ marginTop: 20 }}
               count={parseInt(data.feed.count / 5) + 1}
               onChange={(event, value) => {
-                history.push(`/feed/${value}`);
+                history.push(`/new/${value}`);
               }}
             />
           </>
@@ -39,4 +39,4 @@ const Feed = () => {
   );
 };
 
-export default Feed;
+export default New;

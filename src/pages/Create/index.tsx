@@ -1,11 +1,11 @@
 import { Button, Typography } from "@material-ui/core";
 import React, { useState } from "react";
-import TextInput from "../common/TextInput";
-import Header from "../Header";
+import TextInput from "../../components/TextInput";
+import Header from "../../components/Header";
 import { useMutation } from "@apollo/client";
 import { POST_MUTATION } from "../../graphql/mutations";
 import { useHistory } from "react-router";
-import Notification from "../common/Notification";
+import Notification from "../../components/Notification";
 import {
   EMPTY_FIELDS_ERROR_MESSAGE,
   INVALID_URL_ERROR_MESSAGE,

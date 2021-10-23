@@ -1,13 +1,19 @@
 import React, { useState } from "react";
 import "./styles.scss";
 import { useMutation } from "@apollo/client";
-import { VOTE_MUTATION } from "../../../graphql/mutations";
+import { VOTE_MUTATION } from "../../graphql/mutations";
 import Notification from "../Notification";
 
-const ListItem = ({
-  listItem: { id, description, url, votes, postedBy, createdAt },
-  serialNumber,
+interface Props {
+  listItem: object;
+  serialNumber: number;
+  loggedIn: boolean;
+}
+
+const ListItem: React.FC<Props> = ({
   loggedIn,
+  serialNumber,
+  listItem: { id, description, url, votes, postedBy, createdAt },
 }) => {
   const [error, setError] = useState({ isError: false, message: "" });
   const [vote] = useMutation(VOTE_MUTATION, {

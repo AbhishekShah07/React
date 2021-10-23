@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import List from "../common/List";
+import List from "../../components/List";
 import { useQuery } from "@apollo/client";
 import { SEARCH_LINKS_LIST } from "../../graphql/queries";
-import Header from "../Header";
+import Header from "../../components/Header";
 
 const Search = () => {
   const [search, setSearch] = useState("");

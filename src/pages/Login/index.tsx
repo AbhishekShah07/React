@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Grid } from "@material-ui/core";
 import { useHistory } from "react-router";
-import TextInput from "../common/TextInput";
+import TextInput from "../../components/TextInput";
 import { LOGIN_MUTATION, SIGNUP_MUTATION } from "../../graphql/mutations";
 import { useMutation } from "@apollo/client";
 import {
@@ -11,7 +11,7 @@ import {
 } from "../../contants";
 import "./styles.scss";
 import { Typography } from "@material-ui/core";
-import Notification from "../common/Notification";
+import Notification from "../../components/Notification";
 
 const Login = () => {
   const history = useHistory();
@@ -67,7 +67,7 @@ const Login = () => {
       setError({ isError: true, message: EMPTY_FIELDS_ERROR_MESSAGE });
       return;
     } else if (!isLogin && formData.name === "") {
-      setError({ isError: true, message: "EMPTY_FIELDS_ERROR_MESSAGE" });
+      setError({ isError: true, message: EMPTY_FIELDS_ERROR_MESSAGE });
       return;
     }
     if (!validateEmail(formData.email)) {
